@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Order garlic</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+    <body class="order-container-background">
+        <header>
+            <div class="main-header-container">
+                <h2 class="main-header-tag">Verhovynska63</h2>
+                <button class="main-page-btn" onclick="goToMainPage()">To main page</button>
+                <script>
+                    function goToMainPage(){
+                        window.location.href="./index.html";
+                    }
+                </script>
+            </div>
+        </header>
+        <h4>Leave your phone number and we will deliver your order.</h4>
+        <div class="ordering-process">    
+            <form id="orderForm" action="">
+                <div class="phone-submit">
+                    <label for="phone_num">Your phone number:</label>
+                    <input class="input-area" type="text" id="phone" />
+                </div>
+                <div class="garlic-num-submit">
+                    <label for="garlic-num">Garlic amount (kg):</label>
+                    <input class="input-area" type="number" id="garlicAmount" />
+                </div>
+                <button class="submit-order-btn" type="submit">Order</button>
+            </form>
+            <script>
+                let orderForm = document.getElementById("orderForm");
+                orderForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                let phone = document.getElementById("phone");
+                let amount = document.getElementById("garlicAmount");
+
+                if (phone.value == "" || amount.value == "") {
+                    alert("Ensure you input a value in both fields!");
+                } else {
+                    alert(`Your phone number is ${phone.value} and garlic amount is ${amount.value}. \nWait for your delivery.`);
+                    console.log(`This form has a phone of ${phone.value} and garlic amount of ${amount.value}`);
+
+                    phone.value = "";
+                    amount.value = "";
+                }
+                window.location.href="./index.html";
+                });
+            </script>
+        </div>
+        
+        <div class="footer-text-container"><p class="footer-text">© Produced by Verhovynska63</p></div>
+    </body>
+</html>
